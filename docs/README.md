@@ -36,4 +36,4 @@ The project is automatically deployed to **GitHub Pages** from the `main` branch
 
 ## Author
 
-Made by **Luis Azofra Begara**
+Made by **Luis Azofra Begara**.
