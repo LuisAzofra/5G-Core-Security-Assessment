@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: upf-pfcp-isolation
+  namespace: open5gs
+spec:
+  podSelector:
+    matchLabels:
+      app: upf
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: control-plane
+    ports:
+    - protocol: UDP
+      port: 8805
+  policyTypes:
+  - Ingress
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: open5gs
+    ports:
+    - protocol: UDP
+      port: 8805
+  policyTypes:
+  - Ingress
+  - Egress 
