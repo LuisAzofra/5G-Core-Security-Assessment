@@ -32,7 +32,7 @@ The site will be available on `http://localhost:5173` (or the port indicated by 
 npm run build   # generates static assets in docs/dist
 ```
 
-The project is automatically deployed to **GitHub Pages** from the `main` branch.
+The project is automatically deployed to **Vercel**.
 
 ## Author
 
