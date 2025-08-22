@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: control-data-plane-isolation
+  namespace: open5gs
+spec:
+  podSelector:
+    matchLabels:
+      role: data-plane
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: control-plane
+    ports:
+    - protocol: UDP
+      port: 8805
+  policyTypes:
+  - Ingress 

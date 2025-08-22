@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: ngap-isolation
+  namespace: open5gs
+spec:
+  podSelector:
+    matchLabels:
+      app: amf
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: ran
+    ports:
+    - protocol: SCTP
+      port: 38412
+  policyTypes:
+  - Ingress 
