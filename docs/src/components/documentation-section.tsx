@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/
 import { DownloadButton } from "./download-button";
 
 export function DocumentationSection() {
+  const base = import.meta.env.BASE_URL?.replace(/\/$/, "") || "";
   const documents = [
     {
       title: "Complete Security Assessment Report",
@@ -11,9 +12,10 @@ export function DocumentationSection() {
       icon: FileText,
       type: "PDF Report",
       size: "2.3 MB",
-      pages: "45 pages",
-      link: "/5G-Core-Security-Assessment-Report.md",
-      view: "/5G-Core-Security-Assessment-Report.md"
+      pages: "≈6 pages",
+      link: `${base}/5G-Core-Security-Assessment-Report.md`,
+      view: `${base}/5G-Core-Security-Assessment-Report.md`,
+      downloadName: "5G-Core-Security-Assessment-Report.md"
     },
     {
       title: "Kubernetes Hardening Guide", 
@@ -21,9 +23,10 @@ export function DocumentationSection() {
       icon: Shield,
       type: "Implementation Guide",
       size: "1.8 MB", 
-      pages: "32 pages",
-      link: "/guides/Kubernetes-Hardening-Guide.md",
-      view: "/guides/Kubernetes-Hardening-Guide.md"
+      pages: "≈1 page",
+      link: `${base}/guides/Kubernetes-Hardening-Guide.md`,
+      view: `${base}/guides/Kubernetes-Hardening-Guide.md`,
+      downloadName: "Kubernetes-Hardening-Guide.md"
     },
     {
       title: "Attack Automation Scripts",
@@ -32,8 +35,8 @@ export function DocumentationSection() {
       type: "Source Code",
       size: "850 KB",
       pages: "Scripts",
-      link: "/scripts/README.md",
-      view: "/scripts/README.md",
+      link: `${base}/scripts/README.md`,
+      view: `${base}/scripts/README.md`,
       downloadName: "Attack Automation Scripts.md"
     },
     {
@@ -43,8 +46,8 @@ export function DocumentationSection() {
       type: "YAML Templates", 
       size: "95 KB",
       pages: "YAML files",
-      link: "/network-policies/README.md",
-      view: "/network-policies/README.md",
+      link: `${base}/network-policies/README.md`,
+      view: `${base}/network-policies/README.md`,
       downloadName: "Network Policy Templates.md"
     }
   ];
@@ -147,7 +150,7 @@ spec:
           </div>
           <div className="mt-4 flex gap-2">
             <Button asChild size="sm" variant="outline">
-              <a href="/network-policies/upf-pfcp-isolation.yaml" target="_blank">
+              <a href={`${base}/network-policies/upf-pfcp-isolation.yaml`} target="_blank">
                 <Code className="w-4 h-4 mr-2" />
                 View Full Config
               </a>
